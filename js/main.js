@@ -20,58 +20,41 @@ require.config({
 
 });
  
-require(['jquery', 'bootbox', 'ztree', 'dialog'], function($, bootbox, ztree, dialog) {
-    bootbox.alert("Hello world!", function() {
-  		//Example.show("Hello world callback");
-	});
-	var d = dialog({
-    title: 'message',
-    content: '<ul id="tree" class="ztree" />'
-	});
-	d.showModal();
-	var setting = {
-			data: {
-				simpleData: {
-					enable: true
-				}
-			}
-		};
+require(['jquery', 'treedialog'], function($, treedialog) {
+	var znodes =[
+					{id:1, pId:0, name:"[core] Dialog Tree Root", open:true},
+					{id:101, pId:1, name:"最简单的树 --  标准 JSON 数据", file:"core/standardData"},
+					{id:102, pId:1, name:"最简单的树 --  简单 JSON 数据", file:"core/simpleData"},
+					{id:103, pId:1, name:"不显示 连接线", file:"core/noline"},
+					{id:104, pId:1, name:"不显示 节点 图标", file:"core/noicon"},
+					{id:105, pId:1, name:"自定义图标 --  icon 属性", file:"core/custom_icon"},
+					{id:106, pId:1, name:"自定义图标 --  iconSkin 属性", file:"core/custom_iconSkin"},
+					{id:107, pId:1, name:"自定义字体", file:"core/custom_font"},
+					{id:115, pId:1, name:"超链接演示", file:"core/url"},
+					{id:108, pId:1, name:"异步加载 节点数据", file:"core/async"},
+					{id:109, pId:1, name:"用 zTree 方法 异步加载 节点数据", file:"core/async_fun"},
+					{id:110, pId:1, name:"用 zTree 方法 更新 节点数据", file:"core/update_fun"},
+					{id:111, pId:1, name:"单击 节点 控制", file:"core/click"},
+					{id:112, pId:1, name:"展开 / 折叠 父节点 控制", file:"core/expand"},
+					{id:113, pId:1, name:"根据 参数 查找 节点", file:"core/searchNodes"},
+					{id:114, pId:1, name:"其他 鼠标 事件监听", file:"core/otherMouse"},
 
-		var zNodes =[
-			{ id:1, pId:0, name:"父节点1 - 展开", open:true},
-			{ id:11, pId:1, name:"父节点11 - 折叠"},
-			{ id:111, pId:11, name:"叶子节点111"},
-			{ id:112, pId:11, name:"叶子节点112"},
-			{ id:113, pId:11, name:"叶子节点113"},
-			{ id:114, pId:11, name:"叶子节点114"},
-			{ id:12, pId:1, name:"父节点12 - 折叠"},
-			{ id:121, pId:12, name:"叶子节点121"},
-			{ id:122, pId:12, name:"叶子节点122"},
-			{ id:123, pId:12, name:"叶子节点123"},
-			{ id:124, pId:12, name:"叶子节点124"},
-			{ id:13, pId:1, name:"父节点13 - 没有子节点", isParent:true},
-			{ id:2, pId:0, name:"父节点2 - 折叠"},
-			{ id:21, pId:2, name:"父节点21 - 展开", open:true},
-			{ id:211, pId:21, name:"叶子节点211"},
-			{ id:212, pId:21, name:"叶子节点212"},
-			{ id:213, pId:21, name:"叶子节点213"},
-			{ id:214, pId:21, name:"叶子节点214"},
-			{ id:22, pId:2, name:"父节点22 - 折叠"},
-			{ id:221, pId:22, name:"叶子节点221"},
-			{ id:222, pId:22, name:"叶子节点222"},
-			{ id:223, pId:22, name:"叶子节点223"},
-			{ id:224, pId:22, name:"叶子节点224"},
-			{ id:23, pId:2, name:"父节点23 - 折叠"},
-			{ id:231, pId:23, name:"叶子节点231"},
-			{ id:232, pId:23, name:"叶子节点232"},
-			{ id:233, pId:23, name:"叶子节点233"},
-			{ id:234, pId:23, name:"叶子节点234"},
-			{ id:3, pId:0, name:"父节点3 - 没有子节点", isParent:true}
-		];
+					{id:2, pId:0, name:"[excheck] 复/单选框功能 演示", open:false},
+					{id:201, pId:2, name:"Checkbox 勾选操作", file:"excheck/checkbox"},
+					{id:206, pId:2, name:"Checkbox nocheck 演示", file:"excheck/checkbox_nocheck"},
+					{id:207, pId:2, name:"Checkbox chkDisabled 演示", file:"excheck/checkbox_chkDisabled"},
+					{id:208, pId:2, name:"Checkbox halfCheck 演示", file:"excheck/checkbox_halfCheck"},
+					{id:202, pId:2, name:"Checkbox 勾选统计", file:"excheck/checkbox_count"},
+					{id:203, pId:2, name:"用 zTree 方法 勾选 Checkbox", file:"excheck/checkbox_fun"},
+					{id:204, pId:2, name:"Radio 勾选操作", file:"excheck/radio"},
+					{id:209, pId:2, name:"Radio nocheck 演示", file:"excheck/radio_nocheck"},
+					{id:210, pId:2, name:"Radio chkDisabled 演示", file:"excheck/radio_chkDisabled"},
+					{id:211, pId:2, name:"Radio halfCheck 演示", file:"excheck/radio_halfCheck"},
+					{id:205, pId:2, name:"用 zTree 方法 勾选 Radio", file:"excheck/radio_fun"}
 
-		$(document).ready(function(){
-			$.fn.zTree.init($("#tree"), setting, zNodes);
-		});
+				];
+	treedialog('Tree Dialog',znodes, function(selectedId){alert(selectedId);});
+    
 });
 
 
