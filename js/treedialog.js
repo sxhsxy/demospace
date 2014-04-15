@@ -23,7 +23,6 @@ define([
 						var zTree;
 						var setting = {
 							view: {
-								dblClickExpand: false,
 								showLine: true,
 								selectedMulti: false
 							},
@@ -35,18 +34,7 @@ define([
 									rootPId: ""
 								}
 							},
-							callback: {
-								beforeClick: function(treeId, treeNode) {
-									var zTree = $.fn.zTree.getZTreeObj("tree");
-									if (treeNode.isParent) {
-										zTree.expandNode(treeNode);
-										return false;
-									} else {
-										demoIframe.attr("src",treeNode.file + ".html");
-										return true;
-									}
-								}
-							}
+							
 						};
 
 
@@ -60,8 +48,8 @@ define([
 
 				function clickOk() {
 					var ztree = $.fn.zTree.getZTreeObj("tree");
-					var id = ztree.getSelectedNodes()[0].id;
-					callback(id);
+					var node = ztree.getSelectedNodes()[0];
+					callback(node);
 				}
 				
 				var d = dialog({
@@ -74,7 +62,7 @@ define([
 				d.showModal();
 				
 
-			}
+			};
 			return treedialog;
 　　　　}
 　　);
