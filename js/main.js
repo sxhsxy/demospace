@@ -20,8 +20,8 @@ require.config({
 
 });
  
-require(['jquery', 'selectOrganization'], function($, selectOrganization) {
-		$('#selectOrganization').click(selectOrganization);
+require(['jquery', 'treeDialogSelect'], function($, treeDialogSelect) {
+		$('#treeDialogSelect').click(treeDialogSelect);
 
 	//selectOrganization();
 	
