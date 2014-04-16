@@ -46,8 +46,9 @@ define([
 				treedialog('Tree Dialog',znodes, updateInputControl);
 			};
 			var initialize = function() {
-				url = $("treeDialogSelect").attr("url");
+				url = $("#treeDialogSelect").attr("url");
 				alert(url);
+				$("#treeDialogSelect").click(treeDialogSelect);
 			}
 			initialize();
 			return treeDialogSelect;
