@@ -5,7 +5,7 @@ define([
 
 　　　　function($, treedialog){
 			var updateInputControl = function(selectedNode) {
-				alert("updateInputControl");
+				//alert("updateInputControl");
 				$("input#organizationId").val(selectedNode.id);
 				$("input#organizationName").val(selectedNode.name);
 			};

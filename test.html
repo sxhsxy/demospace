@@ -7,9 +7,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
         <title>My Sample Project</title>
         <!-- data-main attribute tells require.js to load
              scripts/main.js after require.js loads. -->
-        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="css/zTreeStyle.css">
-        <link rel="stylesheet" type="text/css" href="css/ui-dialog.css">
+        
         
     </head>
     <body>
@@ -19,13 +17,17 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
                 <input type="hidden" id="organizationId" />
                 <input type="text" id="organizationName" class="form-control" disabled="true" />
                 <span class="input-group-btn">
-                    <a id="selectOrganization" class="btn btn-default">查找</a>
+                    <button id="selectOrganization" class="btn btn-default">查找</button>
                 </span>
             </div>
+            
                 
         </form>
+        <button>查找</button>
         
-        
-        <script data-main="js/main" src="js/require.js"></script>
+        <script src="js/jquery-2.1.0.js"></script>
+        <script type="text/javascript">
+            alert("xxx");
+        </script>
     </body>
 </html>
