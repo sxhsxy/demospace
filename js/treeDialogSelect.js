@@ -5,12 +5,16 @@ define([
 
 　　　　function($, treedialog) {
 			var url;
+			var caller;
 			var updateInputControl = function(selectedNode) {
-				//alert("updateInputControl");
-				$("input#nodeId").val(selectedNode.id);
-				$("input#nodeName").val(selectedNode.name);
+				var parent = $(caller).parent();
+				$(parent).siblings("#nodeId").val(selectedNode.id);
+				$(parent).siblings("#nodeName").val(selectedNode.name);
 			};
 　　　　　　var treeDialogSelect = function() {
+				caller = this;
+				url = $(this).parent().parent().data("url");
+				alert(url);
 				var znodes =[
 					{id:1, pId:0, name:"[core] Dialog Tree Root", open:true},
 					{id:101, pId:1, name:"最简单x的树 --  标准 JSON 数据", file:"core/standardData"},
@@ -45,10 +49,15 @@ define([
 				];
 				treedialog('Tree Dialog',znodes, updateInputControl);
 			};
+			var bind = function(index, element) {
+				url = $(element).data("url");
+				$(element).addClass("input-group");
+				$(element).html('<input type="hidden" id="nodeId" /><input type="text" id="nodeName" class="form-control" disabled="true" /><span class="input-group-btn"><div id="treeDialogSelect" class="btn btn-default">查找</div></span>');
+				$("div", $(element)).click(treeDialogSelect);
+
+			}
 			var initialize = function() {
-				url = $("#treeDialogSelect").attr("url");
-				alert(url);
-				$("#treeDialogSelect").click(treeDialogSelect);
+				$("[data-type='treeDialogSelectControl']").each(bind);
 			}
 			initialize();
 			return treeDialogSelect;
