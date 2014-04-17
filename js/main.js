@@ -21,7 +21,7 @@ require.config({
 });
  
 require(['jquery', 'treeDialogSelect'], function($, treeDialogSelect) {
-		$('#treeDialogSelect').click(treeDialogSelect);
+		//$('#treeDialogSelect').click(treeDialogSelect);
 
 	//selectOrganization();
 	

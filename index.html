@@ -13,19 +13,18 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
         
     </head>
     <body>
+        <div class="container">
         <h1>My Sample Project</h1>
-        <form>
-            <div class="input-group">
-                <input type="hidden" id="nodeId" />
-                <input type="text" id="nodeName" class="form-control" disabled="true" />
-                <span class="input-group-btn">
-                    <div id="treeDialogSelect" url="xxx" class="btn btn-default">查找</div>
-                </span>
-            </div>
+        <div  class="col-md-6">
+        <form >
+            
+                <div id="select1" data-type="treeDialogSelectControl" data-url="http://localhost:8080"></div>
+            
                 
         </form>
-        
-        
+        <div id="select2" data-type="treeDialogSelectControl" data-url="http://localhost:8080"></div>
+        </div>
+       </div> 
         <script data-main="js/main" src="js/require.js"></script>
     </body>
 </html>
